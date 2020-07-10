@@ -5,7 +5,7 @@ pipeline{
         stage('SCM checkout')
         {
             steps{
-                git branch: 'master', url: 'https://github.com/rohitsharma090207/may-devops-pipeline'
+                git branch: 'master', url: 'https://github.com/rohitsharma090207/maven-project'
             }
         }
         stage('Compilation')
