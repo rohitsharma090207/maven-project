@@ -5,7 +5,7 @@ pipeline{
         stage('SCM checkout')
         {
             steps{
-                git branch: 'master', url: 'https://github.com/rohitsharma090207/maven-project'
+                git branch: 'master', url: 'https://github.com/rohitsharma090207/may-devops-pipeline'
             }
         }
         stage('Compilation')
@@ -14,9 +14,17 @@ pipeline{
                 withMaven(jdk: 'localjdk', maven: 'localmaven') {
                     sh 'mvn compile'
 }
-
             }
+        }
+        stage('build-my-job')
+        {
+            withMaven(jdk: 'localjdk', maven: 'localmaven')
+            {
+                sh 'mvn package'
+            }
+        }
+            
         }
         
     }
-}
+
