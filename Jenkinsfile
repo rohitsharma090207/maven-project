@@ -18,9 +18,11 @@ pipeline{
         }
         stage('build-my-job')
         {
-            withMaven(jdk: 'localjdk', maven: 'localmaven')
+            steps{
+                withMaven(jdk: 'localjdk', maven: 'localmaven')
             {
                 sh 'mvn package'
+            }
             }
         }
 
@@ -41,5 +43,3 @@ sshagent(['b42c9431-7a17-4c79-a710-1c565b3dda17']) {
         }
         
     }
-
-
